@@ -8,7 +8,6 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
-  int i = -1;
   List name = [
     "🇮🇳 INDIA 🇮🇳",
     "🇬🇧 ENGLAND 🇬🇧",
@@ -22,14 +21,13 @@ class _MenuState extends State<Menu> {
     "🇦🇫 AFGHANISTAN  🇦🇫",
     "🇹🇷 TURKEY 🇹🇷",
     "🇧🇩 BAGLADESH 🇧🇩",
-    "🇿🇦 AFICA 🇿🇦",
+    "🇿🇦 AFRICA 🇿🇦",
     "🇳🇿 NEW ZELAND 🇳🇿",
     "🇱🇰 SRI LANKA 🇱🇰",
     "🇳🇵 NEPAL 🇳🇵",
     "🇧🇹 BHUTAN 🇧🇹",
     "🇨🇦 CANADA 🇨🇦",
     "🇳🇴 NORVEY 🇳🇴",
-    "🇲🇾 MALAYSIA 🇲🇾",
   ];
 
   List c1 = [
@@ -42,7 +40,7 @@ class _MenuState extends State<Menu> {
     Colors.red.shade700,
     Colors.amber,
     Colors.green,
-    Colors.black87,
+     Colors.black87,
     Colors.red.shade900,
     Colors.green.shade900,
     Colors.red,
@@ -52,7 +50,6 @@ class _MenuState extends State<Menu> {
     Colors.amber,
     Colors.white,
     Colors.red,
-    Colors.blue
   ];
   List c2 = [
     Colors.white,
@@ -64,7 +61,7 @@ class _MenuState extends State<Menu> {
     Colors.red.shade900,
     Colors.amber.shade200,
     Colors.white,
-    Colors.red,
+     Colors.red,
     Colors.red.shade500,
     Colors.red,
     Colors.green,
@@ -74,7 +71,6 @@ class _MenuState extends State<Menu> {
     Colors.white,
     Colors.red,
     Colors.blueAccent,
-    Colors.amber.shade500
   ];
   List c3 = [
     Colors.green.shade700,
@@ -86,7 +82,7 @@ class _MenuState extends State<Menu> {
     Colors.white,
     Colors.red.shade600,
     Colors.redAccent,
-    Colors.green.shade600,
+     Colors.green.shade600,
     Colors.white,
     Colors.green.shade900,
     Colors.blue.shade900,
@@ -96,8 +92,8 @@ class _MenuState extends State<Menu> {
     Colors.deepOrange.shade500,
     Colors.white,
     Colors.white,
-    Colors.red
   ];
+  int i = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -126,10 +122,10 @@ class _MenuState extends State<Menu> {
           ),
         ),
         title: Text(
-          "COUNTRY 🌍",
+          "🌍 COUNTRY 🌍",
           style: TextStyle(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 30,
               fontWeight: FontWeight.w700,
               letterSpacing: 5),
         ),
@@ -144,44 +140,43 @@ class _MenuState extends State<Menu> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: name.map((e) => listbox(e, c1[++i], c2[++i], c3[++i])).toList(),
+          children: name.asMap().entries.map((e) => listbox(name[e.key],c1[e.key],c2[e.key],c3[e.key])).toList()
         ),
       ),
     );
   }
 
   Widget listbox(String name, Color c1, Color c2, Color c3) {
-    return Column(children: [
-      SizedBox(
-        height: 5,
-      ),
-      Container(
-        height: 70,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          gradient: LinearGradient(
-            colors: [
-              c1,
-              c2,
-              c3,
-            ],
+    return Column(
+      children: [
+        SizedBox(
+          height: 5,
+        ),
+        Container(
+          height: 70,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            gradient: LinearGradient(
+              colors: [
+                c1,
+                c2,
+                c3,
+              ],
+            ),
+          ),
+          child: Center(
+            child: Text(
+              "$name",
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 2,
+                  color: Colors.black87),
+            ),
           ),
         ),
-        child: Center(
-          child: Text(
-            "$name",
-            style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 2,
-                color: Colors.blue),
-          ),
-        ),
-      ),
-    ]);
-    // SizedBox(
-    //   height: 5,
-    // );
+      ],
+    );
   }
 }
