@@ -40,7 +40,7 @@ class _MenuState extends State<Menu> {
     Colors.red.shade700,
     Colors.amber,
     Colors.green,
-     Colors.black87,
+    Colors.black87,
     Colors.red.shade900,
     Colors.green.shade900,
     Colors.red,
@@ -61,7 +61,7 @@ class _MenuState extends State<Menu> {
     Colors.red.shade900,
     Colors.amber.shade200,
     Colors.white,
-     Colors.red,
+    Colors.red,
     Colors.red.shade500,
     Colors.red,
     Colors.green,
@@ -82,7 +82,7 @@ class _MenuState extends State<Menu> {
     Colors.white,
     Colors.red.shade600,
     Colors.redAccent,
-     Colors.green.shade600,
+    Colors.green.shade600,
     Colors.white,
     Colors.green.shade900,
     Colors.blue.shade900,
@@ -140,8 +140,7 @@ class _MenuState extends State<Menu> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: name.asMap().entries.map((e) => listbox(name[e.key],c1[e.key],c2[e.key],c3[e.key])).toList()
-        ),
+            children: name.asMap().entries.map((e) => listbox(name[e.key], c1[e.key], c2[e.key], c3[e.key])).toList()),
       ),
     );
   }
@@ -172,7 +171,7 @@ class _MenuState extends State<Menu> {
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 2,
-                  color: Colors.black87),
+                  color: Colors.black),
             ),
           ),
         ),
