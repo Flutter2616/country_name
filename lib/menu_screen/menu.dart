@@ -145,12 +145,15 @@ class _MenuState extends State<Menu> {
               .entries
               .map((e) => InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Details(name[e.key].toString(),
-                                data[e.key].toString(), img1[e.key], img2[e.key]),
-                          ));
+                      List data1=[name[e.key],data[e.key],img1[e.key],img2[e.key]];
+                      Navigator.pushNamed(context, "detail",arguments: data1);
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => Details(name[e.key],
+                      //           data[e.key], img1[e.key], img2[e.key]),
+                      //     ));
+
                     },
                     child: listbox(
                       name[e.key],

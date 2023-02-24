@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
-  String name, data;
-  String img1,img2;
+  // String name, data;
+  // String img1,img2;
 
-  Details(this.name, this.data,this.img1,this.img2);
+  // Details(this.name, this.data,this.img1,this.img2);
 
   @override
   State<Details> createState() => _DetailsState();
@@ -13,24 +13,27 @@ class Details extends StatefulWidget {
 class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
+    List details=ModalRoute.of(context)!.settings.arguments as List;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.amber,
         centerTitle: true,
         title: Text(
-          "${widget.name}",
+          "${details[0]}",
           style: TextStyle(
               color: Colors.blueGrey,
-              fontSize: 25,
+              fontSize: 30,
               fontWeight: FontWeight.w500,
               letterSpacing: 2),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            SizedBox(height: 5),
             Container(
               width: double.infinity,
               height: 400,
@@ -39,15 +42,15 @@ class _DetailsState extends State<Details> {
                  Expanded(
                    child: Container(
                      height: 400,
-                     width: 200,
-                     child:  Image.asset("${widget.img1}", fit: BoxFit.fill),
+                     width: 400,
+                     child:  Image.asset("${details[2]}", fit: BoxFit.fill),
                    ),
                  ),
                   Expanded(
                     child: Container(
                       height: 400,
-                      width: 200,
-                      child:   Image.asset("${widget.img2}", fit: BoxFit.fill),
+                      width: 400,
+                      child:   Image.asset("${details[3]}", fit: BoxFit.fill),
                     ),
                   ),
                 ],
@@ -55,14 +58,13 @@ class _DetailsState extends State<Details> {
             ),
             SizedBox(height: 10),
             Container(
-              height: double.infinity,
+              height: 400,
               width: double.infinity,
-              alignment: Alignment.center,
-              color: Colors.grey,
+              alignment: Alignment.topLeft,
               child: Text(
-                "${widget.data}",
+                "${details[1]}",
                 style:
-                    TextStyle(fontSize: 15, color: Colors.amber, wordSpacing: 2),
+                    TextStyle(fontSize: 18, color: Colors.black, wordSpacing: 2,letterSpacing: 3),
               ),
             ),
           ],
