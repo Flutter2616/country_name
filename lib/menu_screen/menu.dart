@@ -1,5 +1,8 @@
+// import 'package:country_name/Modal_class/data_Modal.dart';
 import 'package:country_name/information/details.dart';
 import 'package:flutter/material.dart';
+
+import '../Modal_class/data_Modal.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -145,15 +148,21 @@ class _MenuState extends State<Menu> {
               .entries
               .map((e) => InkWell(
                     onTap: () {
-                      List data1=[name[e.key],data[e.key],img1[e.key],img2[e.key]];
-                      Navigator.pushNamed(context, "detail",arguments: data1);
+                      // List data1=[name[e.key],data[e.key],img1[e.key],img2[e.key]];
+                      DataModal d1 = DataModal(
+                          data: data[e.key],
+                          name: name[e.key],
+                          img1: img1[e.key],
+                          img2: img2[e.key]);
+
+                      Navigator.pushNamed(context, "detail",arguments: d1);
+
                       // Navigator.push(
                       //     context,
                       //     MaterialPageRoute(
                       //       builder: (context) => Details(name[e.key],
                       //           data[e.key], img1[e.key], img2[e.key]),
                       //     ));
-
                     },
                     child: listbox(
                       name[e.key],

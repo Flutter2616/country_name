@@ -1,3 +1,4 @@
+import 'package:country_name/Modal_class/data_Modal.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
@@ -13,7 +14,7 @@ class Details extends StatefulWidget {
 class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
-    List details=ModalRoute.of(context)!.settings.arguments as List;
+    DataModal d1=ModalRoute.of(context)!.settings.arguments as DataModal;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -21,7 +22,7 @@ class _DetailsState extends State<Details> {
         backgroundColor: Colors.amber,
         centerTitle: true,
         title: Text(
-          "${details[0]}",
+          "${d1.name}",
           style: TextStyle(
               color: Colors.blueGrey,
               fontSize: 30,
@@ -37,32 +38,33 @@ class _DetailsState extends State<Details> {
             Container(
               width: double.infinity,
               height: 400,
-              child: Row(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                  Expanded(
                    child: Container(
-                     height: 400,
-                     width: 400,
-                     child:  Image.asset("${details[2]}", fit: BoxFit.fill),
+                     height: 500,
+                     width: 500,
+                     child:  Image.asset("${d1.img1}", fit: BoxFit.fill),
                    ),
                  ),
                   Expanded(
                     child: Container(
-                      height: 400,
-                      width: 400,
-                      child:   Image.asset("${details[3]}", fit: BoxFit.fill),
+                      height: 500,
+                      width: 500,
+                      child:   Image.asset("${d1.img2}", fit: BoxFit.fill),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             Container(
               height: 400,
               width: double.infinity,
               alignment: Alignment.topLeft,
               child: Text(
-                "${details[1]}",
+                "${d1.data}",
                 style:
                     TextStyle(fontSize: 18, color: Colors.black, wordSpacing: 2,letterSpacing: 3),
               ),
